@@ -28,23 +28,19 @@ const responseService = require("../../RestApi.Core/Services/ResponseService");
 // @desc   Sample Data
 // @access Public
 router.get("/test", async (req, res) => {
-  throw new Error("Invalid");
-  console.log("Controller called....");
-  const customers = testService.getUser(1234);
-  console.log("customers...", customers);
-  responseService.sendSuccessResponse(res, customers);
+	console.log("Controller called....");
+	const customers = testService.getUser(1234);
+	console.log("customers...", customers);
+	responseService.sendSuccessResponse(res, customers);
 });
 
 // @route  Post api/test
 // @desc   Sample Data
 // @access Public
 router.post("/", async (req, res) => {
-  try {
-    var result = await testService.registerData(req.body);
-    return responseService.sendSuccessResponse(res, result);
-  } catch (error) {
-    next(error);
-  }
+	console.log("regist user called...");
+	var result = await testService.registerUser(req.body);
+	return responseService.sendSuccessResponse(res, result);
 });
 
 module.exports = router;

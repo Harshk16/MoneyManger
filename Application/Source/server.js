@@ -9,3 +9,5 @@ require("./RestApi.Domain/Database/db")();
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => winston.info(`server running on port ${port}`));
+
+app.response.write("It's alive!");
